@@ -1,0 +1,13 @@
+{
+  "name": "proptypes",
+  "_cacheHeaders": {
+    "ETag": "W/\"2e56-AyfRCQ+8tYu+0qhTtm9JNa/AEps\"",
+    "Last-Modified": "Fri, 03 Feb 2017 16:02:05 GMT",
+    "Content-Type": "application/javascript; charset=utf-8"
+  },
+  "_release": "e-tag:W/\"2e56-Ay",
+  "main": "index.js",
+  "_source": "https://unpkg.com/proptypes@^0.14.4/index.js",
+  "_target": "*",
+  "_originalSource": "https://unpkg.com/proptypes@^0.14.4/index.js"
+}

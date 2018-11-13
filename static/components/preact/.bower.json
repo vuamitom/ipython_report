@@ -1,0 +1,13 @@
+{
+  "name": "preact",
+  "_cacheHeaders": {
+    "ETag": "W/\"246b-EtOjNHTfsh3ms10WdamExqgqfyQ\"",
+    "Last-Modified": "Fri, 24 Mar 2017 01:00:15 GMT",
+    "Content-Type": "application/javascript; charset=utf-8"
+  },
+  "_release": "e-tag:W/\"246b-Et",
+  "main": "index.js",
+  "_source": "https://unpkg.com/preact@^7.2.0/dist/preact.min.js",
+  "_target": "*",
+  "_originalSource": "https://unpkg.com/preact@^7.2.0/dist/preact.min.js"
+}

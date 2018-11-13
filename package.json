@@ -1,0 +1,15 @@
+{
+  "name": "ipython-report",
+  "version": "1.0.0",
+  "description": "Build tools based on Jupyter scripts",
+  "scripts": {
+    "build": "node tools/build-main.js notebook",
+    "build:watch": "set -e; while true; do npm run build; sleep 3; done"
+  },
+  "devDependencies": {
+    "less": "~2",
+    "requirejs": "^2.1.17",
+    "po2json": "^0.4.5"
+  },
+  "dependencies": {}
+}

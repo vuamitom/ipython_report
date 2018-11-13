@@ -1,0 +1,13 @@
+{
+  "name": "preact-compat",
+  "_cacheHeaders": {
+    "ETag": "W/\"24e2-NMOYOlioXcgeGAvT+DjIk7v9kKA\"",
+    "Last-Modified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "Content-Type": "application/javascript; charset=utf-8"
+  },
+  "_release": "e-tag:W/\"24e2-NM",
+  "main": "index.js",
+  "_source": "https://unpkg.com/preact-compat@^3.14.3/dist/preact-compat.min.js",
+  "_target": "*",
+  "_originalSource": "https://unpkg.com/preact-compat@^3.14.3/dist/preact-compat.min.js"
+}
