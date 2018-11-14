@@ -93,17 +93,18 @@ requirejs([
     
 
     var common_options = {
-        ws_url : utils.get_body_data("wsUrl"),
-        base_url : utils.get_body_data("baseUrl"),
-        notebook_path : utils.get_body_data("notebookPath"),
-        notebook_name : utils.get_body_data('notebookName')
+        ws_url : '',//utils.get_body_data("wsUrl"),
+        base_url : '/ipython_report/',//utils.get_body_data("baseUrl"),
+        notebook_path : 'guardian_gaza.ipynb', //utils.get_body_data("notebookPath"),
+        notebook_name : 'guardian_gaza.ipynb' //utils.get_body_data('notebookName')
     };
 
     var config_section = new configmod.ConfigSection('notebook', common_options);
     config_section.load();
     var common_config = new configmod.ConfigSection('common', common_options);
     common_config.load();
-
+    console.log('========== config_section ============', config_section)
+    console.log('========== config_common ============', common_config)
     // Instantiate the main objects
     
     var page = new page.Page('div#header', 'div#site');

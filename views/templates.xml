@@ -75,7 +75,7 @@
                 require.config({
                   map: {
                       '*':{
-                        'contents': '{{ contents_js_source }}',
+                        'contents': 'services/contents',
                       }
                   }
                 });
@@ -91,6 +91,9 @@
                       return {};
                   }
                 });
+
+                document.nbjs_translations = {};
+                document.documentElement.lang = navigator.language.toLowerCase();
             </script>
         </template>
 

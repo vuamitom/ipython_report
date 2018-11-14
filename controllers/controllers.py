@@ -5,6 +5,9 @@ from werkzeug.wrappers import Response
 from urllib.parse import urlencode
 from odoo.http import request
 
+BASE_URL = '/ipython_report'
+API_URL = '%s/api' % BASE_URL
+
 class IPython(http.Controller):
     # notebook_api = 'http://localhost:8888'
     # notebook_token = '29a1d85f11d9a45b529849a9a11f9aa1aaa7a2ec3ec1db5c'
@@ -65,10 +68,27 @@ class IPython(http.Controller):
     #     r = requests.get('%s/notebooks/guardian_gaza.ipynb?token=%s' % (self.notebook_api, self.notebook_token))
     #     return r.text
 
-    @http.route(['/ipython_report', '/ipython_report/'], auth='public')
-    def index2(self, debug=False, **kw):
+    @http.route([BASE_URL, '%s/' % BASE_URL], auth='public')
+    def index(self, debug=False, **kw):
         # if user not logged in, log him in
         return request.render('ipython_report.index', qcontext={})
+
+    @http.route('%s/config/notebook' % API_URL, auth='public')
+    def config_notebook(self, debug=False, **kw):
+        pass
+
+    @http.route('%s/config/common' % API_URL, auth='public')
+    def config_common(self, debug=False, **kw):
+        pass
+
+    @http.route('%s/kernelspecs' % API_URL, auth='public')
+    def kernelspecs(self, debug=False, **kw):
+        pass
+
+    @http.route('%s/contents/<unicode:notebook_name>', auth='public')
+    def contents(self, notebook_name, debug=False, **kw):
+        pass
+
 
 #     @http.route('/exper/exper/objects/', auth='public')
 #     def list(self, **kw):
