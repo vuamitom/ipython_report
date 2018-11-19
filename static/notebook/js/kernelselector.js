@@ -58,6 +58,7 @@ define([
     };
     
     KernelSelector.prototype._got_kernelspecs = function(data) {
+        console.log("data kernelspecs ", data);
         var that = this;
         this.kernelspecs = data.kernelspecs;
         var change_kernel_submenu = $("#menu-change-kernel-submenu");

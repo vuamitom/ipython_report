@@ -4,6 +4,7 @@ import requests
 from werkzeug.wrappers import Response
 from urllib.parse import urlencode
 from odoo.http import request
+import json
 
 BASE_URL = '/ipython_report'
 API_URL = '%s/api' % (BASE_URL, )
@@ -73,22 +74,54 @@ class IPython(http.Controller):
         # if user not logged in, log him in
         return request.render('ipython_report.index', qcontext={})
 
-    @http.route('%s/config/notebook' % (API_URL, ), auth='public', type='json')
+    @http.route('%s/config/notebook' % (API_URL, ), auth='public', method='GET')
     def config_notebook(self, debug=False, **kw):
-        return {}
+        return json.dumps({})
 
-    @http.route('%s/config/common' % (API_URL, ), auth='public', type='json')
+    @http.route('%s/config/common' % (API_URL, ), auth='public', method='GET')
     def config_common(self, debug=False, **kw):
-        return {}
+        return json.dumps({})
 
-    @http.route('%s/kernelspecs' % (API_URL, ), auth='public', type='json')
+    @http.route('%s/kernelspecs' % (API_URL, ), auth='public', method='GET')
     def kernelspecs(self, debug=False, **kw):
-        pass
+        sample = {
+            "default": "python3",
+            "kernelspecs": {
+                "python3": {
+                    "name": "python3",
+                    "spec": {
+                        "argv": ["python", "-m", "ipykernel_launcher", "-f", "{connection_file}"],
+                        "env": {},
+                        "display_name": "Python 3",
+                        "language": "python",
+                        "interrupt_mode": "signal",
+                        "metadata": {}
+                    },
+                    "resources": {
+                        "logo-32x32": "/kernelspecs/python3/logo-32x32.png",
+                        "logo-64x64": "/kernelspecs/python3/logo-64x64.png"
+                    }
+                }
+            }
+        }
+        return json.dumps(sample)
 
-    @http.route('%s/contents/<chronotebook_name>' % API_URL, auth='public', type='json')
+    @http.route('%s/contents/<notebook_name>' % API_URL, auth='public', method='GET')
     def contents(self, notebook_name, debug=False, **kw):
-        pass
-
+        notebook_path = '/home/tamvm/Data/notebook/guardian_gaza.ipynb'
+        with open(notebook_path, 'r') as f:
+            content = json.loads(f.read())
+        return json.dumps(dict(
+            content=content,
+            created='2018-11-12T07:55:01.296009Z',
+            format='json',
+            last_modified='2018-11-12T07:55:01.296009Z',
+            name='guardian_gaza.ipynb',
+            path='guardian_gaza.ipynb',
+            size=9285,
+            type='notebook',
+            writable=True
+        ))
 
 #     @http.route('/exper/exper/objects/', auth='public')
 #     def list(self, **kw):

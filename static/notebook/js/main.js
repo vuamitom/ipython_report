@@ -103,8 +103,8 @@ requirejs([
     config_section.load();
     var common_config = new configmod.ConfigSection('common', common_options);
     common_config.load();
-    console.log('========== config_section ============', config_section)
-    console.log('========== config_common ============', common_config)
+    // console.log('========== config_section ============', config_section)
+    // console.log('========== config_common ============', common_config)
     // Instantiate the main objects
     
     var page = new page.Page('div#header', 'div#site');

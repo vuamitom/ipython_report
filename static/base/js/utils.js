@@ -794,6 +794,10 @@ define([
             delete settings.url;
         }
         settings = _add_auth_header(settings);
+        // set default converter of text html to parseJSON
+        // since we are using text html for all json communication
+        // due to odoo limitation.
+        settings.converters = {"text html": jQuery.parseJSON}
         return $.ajax(url, settings);
     };
     
