@@ -2628,6 +2628,7 @@ define([
         for (i=0; i<ncells; i++) {
             cell_data = new_cells[i];
             new_cell = this.insert_cell_at_index(cell_data.cell_type, i);
+            // console.log('parsing cell data ', cell_data);
             new_cell.fromJSON(cell_data);
             if (new_cell.cell_type === 'code' && !new_cell.output_area.trusted) {
                 trusted = false;

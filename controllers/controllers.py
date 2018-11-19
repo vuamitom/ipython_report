@@ -111,6 +111,10 @@ class IPython(http.Controller):
         notebook_path = '/home/tamvm/Data/notebook/guardian_gaza.ipynb'
         with open(notebook_path, 'r') as f:
             content = json.loads(f.read())
+        for cell in content['cells']:
+            print(cell)
+            if cell['source'] is not None and isinstance(cell['source'], list):
+                cell['source'] = ''.join(cell['source'])
         return json.dumps(dict(
             content=content,
             created='2018-11-12T07:55:01.296009Z',
